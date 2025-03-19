@@ -1,0 +1,92 @@
+.myCoursesPage {
+    padding: 8vw 0;
+    width: 70vw;
+
+    >h2 {
+        font-size: 6vw;
+        font-weight: 700;
+        line-height: 6vw;
+        letter-spacing: 0.08em;
+        margin-bottom: 12.5vw;
+    }
+
+    >.filterSearch {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 3vw;
+        margin-bottom: 7vw;
+
+        .searchPart {
+            width: 100%;
+        }
+
+        .filterPart {
+            width: 100%;
+        }
+    }
+
+    >.addCourse {
+        display: flex;
+        flex-direction: row;
+        gap: 1.875vw;
+        margin-bottom: 1.04vw;
+
+        p {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 25px;
+            letter-spacing: 0.05em;
+            color: #454545;
+        }
+
+        button {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 25px;
+            letter-spacing: 0.05em;
+            color: #E70BBB;
+        }
+    }
+}
+
+@media (min-width: 900px) {
+    .myCoursesPage {
+        padding: 5.2vw 0;
+
+        >h2 {
+            font-size: 1.667vw;
+            line-height: 2vw;
+            margin-bottom: 6.1458vw;
+        }
+
+        >.filterSearch {
+            gap: 1.3vw;
+            margin-bottom: 3.2vw;
+
+            .searchPart {
+                width: 26vw;
+            }
+
+            .filterPart {
+                width: 20.8vw;
+            }
+        }
+
+        >.addCourse {
+            gap: 1.875vw;
+            margin-bottom: 1.04vw;
+
+            p {
+                font-size: 18px;
+                line-height: 25px;
+                letter-spacing: 0.05em;
+            }
+
+            button {
+                font-size: 18px;
+                line-height: 25px;
+            }
+        }
+    }
+}

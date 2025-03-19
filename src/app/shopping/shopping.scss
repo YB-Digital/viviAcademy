@@ -1,0 +1,47 @@
+.shopping {
+    .container {
+        width: 87.5vw;
+        margin: auto;
+        padding-top: 3.28125vw;
+
+        .title {
+            font-size: 7.5vw;
+            font-weight: 700;
+            line-height: 7.5vw;
+            color: #000;
+            margin-bottom: 12.5vw;
+        }
+
+        .shoppingCart {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: space-between;
+        }
+    }
+}
+
+
+@media (min-width: 900px) {
+
+    .shopping {
+        .container {
+            margin: auto;
+            padding-top: 3.28125vw;
+
+            .title {
+                font-size: 1.667vw;
+                font-weight: 700;
+                line-height: 2.03vw;
+                color: #000;
+                margin-bottom: 3.54vw;
+            }
+
+            .shoppingCart {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    }
+
+}

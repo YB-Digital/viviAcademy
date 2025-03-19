@@ -1,0 +1,103 @@
+.courseVideoPage {
+    padding: 2.3958vw 0;
+
+    .container {
+        margin: auto;
+
+        .content {
+            * {
+                padding: 1.04vw 2.6vw;
+                font-family: Inter;
+                font-weight: 500;
+                font-size: 0.9375vw;
+                line-height: 2.08vw;
+                letter-spacing: 10%;
+            }
+        }
+
+        .back {
+            margin-bottom: 0.625vw;
+
+            a {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                img {
+                    width: 1.875vw;
+                    height: auto;
+                }
+
+                p {
+                    font-weight: 500;
+                    font-size: 0.9375vw;
+                    line-height: 1.134375vw;
+                    color: #0068AA;
+                }
+            }
+        }
+
+        .videoText {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 4.479vw;
+
+            .video {
+                width: 52.08vw;
+                height: 37.5vw;
+                background: #FBFBFB;
+            }
+
+            .text {
+                width: 23.4375vw;
+
+                h2 {
+                    margin-bottom: 1.25vw;
+                    font-weight: 600;
+                    font-size: 1.667vw;
+                    line-height: 2.08vw;
+                    color: #000;
+                }
+
+                >p {
+                    font-weight: 500;
+                    font-size: 0.9375vw;
+                    line-height: 2.08vw;
+                    color: #848484;
+                    margin-bottom: 2.5vw;
+                    padding: 0.52vw 2.08vw 0.52vw 0.52vw;
+                }
+
+                >.button {
+                    width: 20.8vw;
+                    margin: auto;
+
+                    button {
+                        width: 100%;
+                        border-radius: 0.4167vw;
+                        background: #E70BBB;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 1.875vw;
+                        padding: 0.52vw;
+
+                        img {
+                            width: 1.5625vw;
+                            height: auto;
+                        }
+
+                        p {
+                            font-weight: 700;
+                            font-size: 0.9375vw;
+                            line-height: 1.13vw;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

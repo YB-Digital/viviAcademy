@@ -1,0 +1,51 @@
+.ourCourses {
+    margin: 0 auto 7.29vw auto;
+    width: 87.5vw;
+
+    h2 {
+        text-align: center;
+        color: #000;
+        margin-bottom: 2.65625vw;
+        font-weight: 700;
+        font-size: 5vw;
+        line-height: 8vw;
+    }
+
+    .seeMore {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        a {
+            font-size: 3.5vw;
+            font-weight: 600;
+            line-height: 6.875vw;
+            letter-spacing: 0.2em;
+            text-decoration-line: underline;
+            color: #A4A4A4;
+            margin-bottom: 3.75vw;
+        }
+    }
+}
+
+@media (min-width: 900px) {
+
+    .ourCourses {
+        width: 78.125vw;
+        margin: 0 auto 7.29vw auto;
+
+        h2 {
+            margin-top: 3.177vw;
+            font-size: 1.458vw;
+            line-height: 1.7776vw;
+        }
+
+        .seeMore{
+            a {
+                font-size: 1.04vw;
+                line-height: 1.5625vw;
+                margin-bottom: 0.52vw;
+            }
+        }
+    }
+}

@@ -1,0 +1,110 @@
+.banner {
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 171, 229, 0.42) 20.5%, rgba(231, 11, 187, 0.42) 100%);
+    border-radius: 1.875vw;
+    padding: 7.8125vw 10vw 6.25vw 10vw;
+    width: 87.5vw;
+    margin: 7.8125vw auto 12.5vw auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .text {
+        position: relative;
+        margin-bottom: 12.5vw;
+
+        h1 {
+            position: relative;
+            font-family: Aboreto;
+            font-size: 8.75vw;
+            font-weight: 400;
+            line-height: 17.5vw;
+            letter-spacing: 0.2em;
+            z-index: 1;
+        }
+
+        >img {
+            position: absolute;
+            height: auto;
+
+            &.icon1 {
+                width: 2.08vw;
+                top: -0.4vw;
+                left: -1.04vw;
+            }
+
+            &.icon2 {
+                width: 1.04vw;
+                top: 6.15vw;
+                left: 2.97vw;
+            }
+
+            &.icon3 {
+                width: 2.08vw;
+                left: 6.04vw;
+                bottom: 0.52vw;
+            }
+
+            &.icon4 {
+                width: 1.04vw;
+                top: 0.78vw;
+                left: 9.375vw;
+            }
+        }
+    }
+}
+
+@media (min-width:900px) {
+
+    .banner {
+        border-radius: 1.875vw;
+        flex-direction: row;
+        margin: 2.6vw auto 4.167vw auto;
+        padding: 2.6vw 5vw 2.08vw 7.8vw;
+        width: 78.125vw;
+
+        .text {
+            position: relative;
+            margin-bottom: 0;
+
+            h1 {
+                position: relative;
+                font-family: Aboreto;
+                font-size: 2.083vw;
+                font-weight: 400;
+                line-height: 4.167vw;
+                letter-spacing: 0.2em;
+                z-index: 1;
+            }
+
+            >img {
+                position: absolute;
+                height: auto;
+
+                &.icon1 {
+                    width: 2.08vw;
+                    top: -0.4vw;
+                    left: -1.04vw;
+                }
+
+                &.icon2 {
+                    width: 1.04vw;
+                    top: 6.15vw;
+                    left: 2.97vw;
+                }
+
+                &.icon3 {
+                    width: 2.08vw;
+                    left: 6.04vw;
+                    bottom: 0.52vw;
+                }
+
+                &.icon4 {
+                    width: 1.04vw;
+                    top: 0.78vw;
+                    left: 9.375vw;
+                }
+            }
+        }
+    }
+}

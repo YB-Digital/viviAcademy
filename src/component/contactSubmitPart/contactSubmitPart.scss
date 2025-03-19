@@ -1,0 +1,109 @@
+.contactSubmitPart {
+    form {
+        width: 100%;
+
+        >h2 {
+            font-size: 7.5vw;
+            font-weight: 700;
+            line-height: 8vw;
+            color: #000;
+            margin-bottom: 3.75vw;
+        }
+
+        >p {
+            margin-bottom: 10vw;
+            font-size: 3.75vw;
+            font-weight: 400;
+            line-height: 6.875vw;
+            letter-spacing: 0.03em;
+            color: #3A3A3A;
+        }
+
+        .privacy {
+            margin-bottom: 3.125vw;
+
+            span {
+                font-size: 3.125vw;
+                font-weight: 400;
+                line-height: 3.125vw;
+                letter-spacing: 0.03em;
+                color: #3A3A3A;
+            }
+
+            a {
+                font-size: 3.125vw;
+                font-weight: 400;
+                line-height: 3.125vw;
+                letter-spacing: 0.03em;
+                color: #0068AA;
+                padding-left: 3.125vw;
+            }
+        }
+
+        >.button {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 9vw;
+
+            button {
+                padding: 2.5vw;
+                width: 100%;
+                margin: auto;
+                font-size: 3.125vw;
+                font-weight: 600;
+                line-height: 3.125vw;
+                border-radius: 1.25vw;
+                background: #E70BBB;
+                color: #fff;
+            }
+        }
+    }
+}
+
+@media (min-width:900px) {
+    .contactSubmitPart {
+        form {
+            width: 41.67vw;
+
+            >h2 {
+                font-size: 1.67vw;
+                line-height: 2.03vw;
+                margin-bottom: 1.15vw;
+            }
+
+            >p {
+                margin-bottom: 3.85vw;
+                font-size: 0.9375vw;
+                line-height: 1.5625vw;
+                letter-spacing: 0.03em;
+            }
+
+            .privacy {
+                margin-bottom: 1.25vw;
+
+                span {
+                    font-size: 0.729vw;
+                    line-height: 0.88vw;
+                }
+
+                a {
+                    font-size: 0.729vw;
+                    line-height: 0.88vw;
+                }
+            }
+
+            >.button {
+                margin-bottom: 0;
+
+                button {
+                    padding: 0.78125vw;
+                    width: 10.4vw;
+                    font-size: 0.83vw;
+                    line-height: 1.008vw;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.contactPage {
+    padding: 15.625vw 0;
+
+    .container {
+        width: 87.5vw;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media (min-width:900px) {
+    .contactPage {
+        padding: 5.2vw 0;
+    
+        .container {
+            flex-direction: row;
+        }
+    }    
+}

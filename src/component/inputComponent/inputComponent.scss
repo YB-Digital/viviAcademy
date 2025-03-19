@@ -1,0 +1,58 @@
+.inputComponent {
+    width: 100%;
+    border: 1px solid #A4A4A4;
+    border-radius: 1.25vw;
+    overflow: hidden;
+    padding: 3.75vw 10vw 3.75vw 1.25vw;
+    position: relative;
+    margin-bottom: 6.25vw;
+
+    &.extraPad {
+        padding: 3.75vw 1.25vw 3.75vw 10vw;
+    }
+
+    .leftImage {
+        width: 5.625vw;
+        height: auto;
+        position: absolute;
+        left: 2vw;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+
+    .rightImage {
+        width: 5.625vw;
+        height: auto;
+        position: absolute;
+        right: 2vw;
+        top: 50%;
+        transform: translate(0, -50%);
+        cursor: pointer;
+    }
+
+    input {
+        width: 100%;
+    }
+}
+
+@media (min-width:900px) {
+    .inputComponent {
+        border-radius: 0.208vw;
+        padding: 1.17vw 3.33vw 1.17vw 1.25vw;
+        margin-bottom: 2.5vw;
+    
+        &.extraPad {
+            padding: 1.17vw 1.25vw 1.17vw 3.33vw;
+        }
+    
+        .leftImage {
+            width: 1.25vw;
+            left: 1.25vw;
+        }
+    
+        .rightImage {
+            width: 1.25vw;
+            right: 1.25vw;
+        }
+    }
+}

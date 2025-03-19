@@ -1,0 +1,94 @@
+.myCourseList {
+    width: 150%;
+    border: 1px solid #D2D2D2;
+    overflow: scroll;
+
+    >div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2.5vw;
+        width: 100%;
+        padding: 1.04vw 1.56vw 1.04vw 0.52vw;
+        border-bottom: 1px solid #D2D2D2;
+
+        >div,
+        >a {
+            font-size: 3.5vw;
+            font-weight: 500;
+            line-height: 4vw;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &.title {
+            background: #EFEFEF;
+            padding: 0.96vw 1.56vw 1.04vw 0.52vw;
+
+            >div {
+                font-size: 3.75vw;
+                font-weight: 700;
+                line-height: 4.375vw;
+                letter-spacing: 0.04em;
+            }
+        }
+
+        .price {
+            width: 25%;
+        }
+
+        .link {
+            width: 10%;
+            color: #E70BBB;
+            text-decoration: underline;
+        }
+
+        .courseName {
+            width: 50%;
+        }
+
+        .shortDesc {
+            width: 60%;
+        }
+    }
+}
+
+@media (min-width: 900px) {
+    .myCourseList {
+        width: 52vw;
+
+        >div {
+            gap: 2.5vw;
+            padding: 1.04vw 1.56vw 1.04vw 0.52vw;
+
+            >div,
+            >a {
+                font-size: 0.83vw;
+                line-height: 1.008vw;
+            }
+
+            &.title {
+                padding: 0.96vw 1.56vw 1.04vw 0.52vw;
+
+                >div {
+                    font-size: 0.9375vw;
+                    line-height: 1.134375vw;
+                }
+            }
+
+            .price {
+                width: 6vw;
+            }
+
+            .courseName {
+                width: 15vw;
+            }
+
+            .shortDesc {
+                width: 17vw;
+            }
+        }
+    }
+}

@@ -1,0 +1,109 @@
+.courseList {
+    .container {
+        margin: auto;
+        width: 87.5vw;
+        padding: 12vw 0;
+
+        >h1 {
+            margin-bottom: 7.5vw;
+            font-weight: 700;
+            font-size: 7.5vw;
+            line-height: 7.5vw;
+            letter-spacing: 20%;
+            color: #000;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+            padding: 0.52vw;
+        }
+
+        >p {
+            font-weight: 500;
+            font-size: 3.75vw;
+            line-height: 5.75vw;
+            letter-spacing: 5%;
+            color: #A4A4A4;
+            margin-bottom: 15.625vw;
+        }
+
+        >h2 {
+            padding: 0.52vw;
+            font-weight: 800;
+            font-size: 7.5vw;
+            line-height: 7.5vw;
+            letter-spacing: 25%;
+            text-align: center;
+            color: #E70BBB;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+            margin-bottom: 7.5vw;
+        }
+
+        .courseGrid {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 4vw;
+        }
+
+        .serachFilter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 5.2vw;
+
+            .searchPart {
+                width: 100%;
+            }
+
+            .filterPart {
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+@media (min-width:900px) {
+    .courseList {
+        .container {
+            padding: 5.2vw 0;
+
+            >h1 {
+                margin-bottom: 1.25vw;
+                font-size: 1.667vw;
+                line-height: 2.03vw;
+                padding: 0.52vw;
+            }
+
+            >p {
+                font-size: 0.9375vw;
+                line-height: 1.5625vw;
+                margin-bottom: 5.3125vw;
+            }
+
+            >h2 {
+                padding: 0.52vw;
+                font-size: 1.61458vw;
+                line-height: 1.97vw;
+                margin-bottom: 1.4vw;
+            }
+
+            .courseGrid {
+                gap: 5.25vw;
+                padding:0 4.53125vw;
+            }
+
+            .serachFilter {
+                margin-bottom: 5.2vw;
+                flex-direction: row;
+
+                .searchPart {
+                    width: 52.5vw;
+                }
+
+                .filterPart {
+                    width: 22.5vw;
+                }
+            }
+        }
+    }
+}

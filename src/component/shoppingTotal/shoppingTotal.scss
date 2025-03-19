@@ -1,0 +1,63 @@
+.shoppingTotal {
+    width: 15vw;
+
+    >button {
+        padding: 1.04vw;
+        background: #E70BBB;
+        border-radius: 0.4vw;
+        font-size: 1.04vw;
+        font-weight: 700;
+        line-height: 1.26vw;
+        color: #fff;
+        width: 100%;
+    }
+
+    >div {
+        border: 1px solid #00000024;
+        margin-bottom: 1.5625vw;
+
+        .header {
+            padding: 0.52vw 0;
+            font-size: 1.25vw;
+            font-weight: 700;
+            line-height: 1.52vw;
+            text-align: center;
+            background: #ddd;
+            margin-bottom: 0.885vw;
+        }
+
+        .text {
+            padding: 0 0.52vw;
+
+            .subText {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.677vw;
+
+                &:not(:last-of-type) {
+                    border-bottom: 1px solid #00000033;
+                }
+
+                p {
+                    &:first-child {
+                        font-size: 1.04vw;
+                        font-weight: 500;
+                        line-height: 1.26vw;
+                        color: #666;
+                    }
+
+                    &:last-child {
+                        font-size: 0.9375vw;
+                        font-weight: 400;
+                        line-height: 1.5625vw;
+                        letter-spacing: 0.15em;
+                        color: #000;
+                    }
+
+                }
+            }
+        }
+    }
+}

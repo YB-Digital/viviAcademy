@@ -1,0 +1,56 @@
+.serviceComponent {
+    border: 1px solid #EAEAEA;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    width: 100%;
+
+    img {
+        width: 100%;
+        height: 81.875vw;
+        object-fit: cover;
+        margin-bottom: 3.125vw;
+    }
+
+    h3 {
+        font-size: 5vw;
+        padding: 3.125vw 4.6875vw 0 4.6875vw;
+    }
+
+    p {
+        font-size: 3.75vw;
+        font-weight: 500;
+        line-height: 6.25vw;
+        letter-spacing: 0.03em;
+        padding: 3.125vw 4.6875vw 2vw 4.6875vw;
+        color: #6C6C6C;
+    }
+
+    &:hover {
+        transform: translateY(-0.5vw);
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+        border-bottom-color: #E70BBB;
+    }
+}
+
+@media (min-width: 900px) {
+    .serviceComponent {
+        width: 14.0625vw;
+        border-radius: 0.1vw 0.1vw 1.25vw 1.25vw;
+
+        img {
+            height: 11.513vw;
+            margin-bottom: 0;
+        }
+
+        h3 {
+            font-size: 0.9375vw;
+            padding: 1.875vw 1.04vw 0 1.04vw;
+        }
+
+        p {
+            font-size: 0.73vw;
+            line-height: 1.5625vw;
+            padding: 0.52vw 1.04vw 2.24vw 1.04vw;
+        }
+    }
+}

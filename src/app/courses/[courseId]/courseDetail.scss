@@ -1,0 +1,99 @@
+.courseDetail {
+    background: linear-gradient(180deg, #FFABE5 -1.63%, #FBFBFB 100%);
+    padding: 5.2vw 0;
+
+    .container {
+        width: 87.5vw;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        gap: 4.6875vw;
+
+        .image {
+            padding-top: 5.2vw;
+
+            img {
+                width: 26.04vw;
+                height: 20.8vw;
+                object-fit: cover;
+            }
+        }
+
+        .text {
+            h2 {
+                margin-bottom: 5vw;
+                font-size: 5vw;
+                font-weight: 600;
+                line-height: 6.25vw;
+                letter-spacing: 0.05em;
+                color: #000;
+            }
+
+            .price {
+                font-size: 3.75vw;
+                font-weight: 700;
+                line-height: 6.25vw;
+                letter-spacing: 0.15em;
+                color: #E70BBB;
+                margin-bottom: 6.25vw;
+            }
+
+            a {
+                width: 100%;
+                font-size: 4.375vw;
+                font-weight: 700;
+                line-height: 5vw;
+                text-align: center;
+                color: #FFFFFF;
+                background: #E70BBB;
+                padding: 3.75vw;
+                border-radius: 1.25vw;
+                margin-bottom: 5vw;
+                display: block;
+            }
+        }
+    }
+}
+
+@media (min-width:900px) {
+    .courseDetail {
+        padding: 5.2vw 0;
+
+        .container {
+            flex-direction: row;
+            gap: 4.6875vw;
+
+            .image {
+                padding-top: 5.2vw;
+
+                img {
+                    width: 26.04vw;
+                    height: 20.8vw;
+                }
+            }
+
+            .text {
+                h2 {
+                    margin-bottom: 1.25vw;
+                    font-size: 1.3vw;
+                    line-height: 1.5625vw;
+                }
+
+                .price {
+                    font-size: 1.04vw;
+                    line-height: 1.5625vw;
+                    margin-bottom: 1.875vw;
+                }
+
+                a {
+                    margin: 0 0 3.828125vw 4.167vw;
+                    width: 10.4vw;
+                    font-size: 0.9375vw;
+                    line-height: 1.134375vw;
+                    padding: 0.729vw 0;
+                    border-radius: 0.4vw;
+                }
+            }
+        }
+    }
+}

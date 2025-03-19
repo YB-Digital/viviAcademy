@@ -1,0 +1,61 @@
+.faqPage {
+    padding: 15.208vw 0;
+    background: linear-gradient(0deg, #FBFBFB 0%, #FFABE5 100%);
+    width: 100%;
+
+    .container {
+        margin: auto;
+        width: 87.5vw;
+
+        h2 {
+            font-size: 6vw;
+            font-weight: 600;
+            line-height: 7.5vw;
+            margin-bottom: 9vw;
+        }
+
+        >p {
+            font-size: 3.75vw;
+            font-weight: 400;
+            line-height: 5vw;
+            letter-spacing: 0.05em;
+            color: #848484;
+            margin-bottom: 12vw;
+        }
+
+        .faqQuestions {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (min-width:900px) {
+    .faqPage {
+        padding: 5.208vw 0;
+
+        .container {
+            margin: auto;
+
+            h2 {
+                font-size: 1.667vw;
+                font-weight: 600;
+                line-height: 2.03vw;
+                margin-bottom: 3.07vw;
+            }
+
+            >p {
+                font-size: 0.9375vw;
+                line-height: 1.3vw;
+                margin-bottom: 8.28125vw;
+            }
+
+            .faqQuestions {
+                flex-wrap: wrap;
+                flex-direction: row;
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+    box-sizing: border-box !important;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+}
+
+
+@media (min-width:900px) {
+    .container{
+        width: 83.7vw !important;
+    }
+}
+
+/* Google Translate Toolbar'ı gizle */
+body > .skiptranslate {
+    display: none !important;
+  }
+  
+  /* Body yukarı kaymasını önle */
+  body {
+    top: 0px !important;
+  }
+  

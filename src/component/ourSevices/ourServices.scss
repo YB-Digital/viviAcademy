@@ -1,0 +1,32 @@
+.ourServices {
+    margin: 0 auto 5.2vw auto;
+    width: 87.5vw;
+
+    h2 {
+        text-align: center;
+        color: #000;
+        margin-bottom: 2.65625vw;
+    }
+
+    .servicesList {}
+}
+
+@media (min-width: 900px) {
+
+    .ourServices {
+        width: 78.125vw;
+
+        h2 {
+            margin-top: 3.177vw;
+            font-size: 1.458vw;
+            font-weight: 700;
+            line-height: 1.7776vw;
+        }
+
+        .servicesList {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}

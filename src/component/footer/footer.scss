@@ -1,0 +1,141 @@
+footer {
+    width: 100%;
+    background: #EFEFEF;
+    padding: 6.25vw 0;
+    overflow: hidden;
+
+    .footerTop {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 0.4px solid #6C6C6C;
+
+
+        >p {
+            font-size: 3.75vw;
+            font-weight: 400;
+            line-height: 5vw;
+            letter-spacing: 0.05em;
+            color: #3A3A3A;
+            margin-bottom: 3.75vw;
+
+            span {
+                font-weight: 700;
+            }
+        }
+
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 3.75vw;
+
+            a {
+                font-size: 3.125vw;
+                font-weight: 700;
+                line-height: 3.125vw;
+                color: #3A3A3A;
+            }
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            gap: 3.125vw;
+            margin: 3.75vw 0 3.75vw 0;
+
+            a {
+                font-size: 3.125vw;
+                font-weight: 500;
+                line-height: 3.125vw;
+                color: #3A3A3A;
+            }
+        }
+    }
+
+    .copyright {
+        padding: 6.25vw 0 0 0;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-between;
+
+        p {
+            font-size: 3.125vw;
+            font-weight: 700;
+            line-height: 3.125vw;
+            color: #6C6C6C;
+        }
+
+        .socialLinks {
+            display: flex;
+            flex-direction: row;
+            gap: 4.75vw;
+            padding-bottom: 3.75vw;
+
+            img {
+                width: 5vw;
+                height: auto;
+            }
+        }
+    }
+}
+
+@media (min-width:900px) {
+    footer {
+        width: 100%;
+        padding: 2.1vw 0;
+
+        .footerTop {
+            padding: 0 20.8vw 0.8vw 20.8vw;
+            flex-direction: row;
+
+            >p {
+                font-size: 0.9375vw;
+                line-height: 1.3vw;
+                margin-bottom: 0;
+            }
+
+
+            .links {
+                gap: 1.3vw;
+
+                a {
+                    font-size: 0.729vw;
+                    line-height: 0.88vw;
+                }
+            }
+
+            .contact {
+                gap: 1.3vw;
+
+                a {
+                    font-size: 0.729vw;
+                    line-height: 0.88vw;
+                }
+            }
+        }
+
+        .copyright {
+            padding: 0 20.8vw;
+            flex-direction: row;
+            padding-top: 1.25vw;
+
+            p {
+                font-size: 0.729vw;
+                line-height: 0.88vw;
+            }
+
+            .socialLinks {
+                gap: 0.83vw;
+                padding: 0;
+
+                img {
+                    width: 1.25vw;
+                }
+            }
+        }
+    }
+}

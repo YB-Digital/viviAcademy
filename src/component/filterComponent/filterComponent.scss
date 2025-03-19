@@ -1,0 +1,45 @@
+.filterComponent {
+    position: relative;
+    width: 100%;
+    border: 1px solid #A4A4A4;
+    border-radius: 1.25vw;
+    overflow: hidden;
+
+    select {
+        padding: 3.75vw 10vw 3.75vw 1.25vw;
+        width: 100%;
+        border: none;
+        outline: none;
+        appearance: none;
+        background-color: white;
+        color: #7F7E7E;
+        cursor: pointer;
+    }
+
+    .dropdown-icon {
+        position: absolute;
+        top: 50%;
+        right: 1vw;
+        transform: translateY(-50%);
+        pointer-events: none;
+        transition: transform 0.3s ease;
+
+        &.rotate {
+            transform: translateY(-50%) rotate(180deg);
+        }
+    }
+}
+
+@media (min-width:900px) {
+    .filterComponent {
+        border-radius: 0.4167vw;
+    
+        select {
+            padding: 0.9vw 1.25vw;
+        }
+    
+        .dropdown-icon {
+            right: 1vw;
+        }
+    }
+}
