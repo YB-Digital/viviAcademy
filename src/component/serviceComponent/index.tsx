@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 //style
 import './serviceComponent.scss';
 
@@ -20,12 +18,12 @@ export default function ServiceComponent(props: ServiceComponentProps) {
     };
 
     return (
-        <Link href={`/services/${props.id}`} className="serviceComponent">
+        <div className="serviceComponent">
             <img src={props.img} alt={'service image'} />
             <h3>{truncateText(title, 30)}</h3>
             <p className="font-inter">
                 {truncateText(props.text, 30)}
             </p>
-        </Link>
+        </div>
     );
 }
