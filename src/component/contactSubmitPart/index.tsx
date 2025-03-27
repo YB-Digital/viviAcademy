@@ -4,7 +4,6 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 import InputComponent from '../inputComponent';
 import TextAreaComponent from '../textAreaComponent';
 import Link from 'next/link';
-import { getCaptchaToken } from '@/utils/captcha'; // Ensure this is the correct path
 
 // style
 import './contactSubmitPart.scss';
@@ -31,26 +30,20 @@ export default function ContactSubmitPart() {
             [e.target.name]: e.target.value
         });
     };
+
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
         setResponseMessage('');
 
-        // Retrieve the token right before submitting the form
-        const token = await getCaptchaToken(); // This should be your modified function that does not need parameters
-        if (!token) {
-            setResponseMessage('Failed to retrieve CAPTCHA token.');
-            setLoading(false);
-            return;
-        }
-
+        // No reCAPTCHA check anymore
         try {
             const response = await fetch("https://ybdigitalx.com/vivi_front/contact.php", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ ...formData })
+                body: JSON.stringify(formData) // Directly send form data without reCAPTCHA
             });
 
             if (!response.ok) {
