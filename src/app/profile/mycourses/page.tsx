@@ -42,20 +42,25 @@ export default function Page() {
     })();
   }, [router]);
 
+  
   const fetchUserCourses = async (userId: string) => {
     try {
       const response = await fetch("https://ybdigitalx.com/vivi_front/get_user_courses.php", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({ userId }).toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId }),
       });
-
+      
       if (!response.ok) {
-        throw new Error("Failed to fetch courses");
+        throw new Error(`HTTP Error: ${response.status}`);
       }
-
+  
       const data = await response.json();
-
+  
+      if (data.status !== "success") {
+        throw new Error(data.message || "Failed to fetch courses");
+      }
+  
       const formattedCourses = data.courses.map((course: any) => ({
         id: Number(course.course_id),
         course_name: course.course_name,
@@ -64,7 +69,7 @@ export default function Page() {
         description: course.description || "No description available",
         category: course.category_name || "Uncategorized",
       }));
-
+  
       setCourses(formattedCourses);
       setFilteredCourses(formattedCourses);
     } catch (error) {

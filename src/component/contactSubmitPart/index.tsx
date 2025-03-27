@@ -24,7 +24,6 @@ export default function ContactSubmitPart() {
 
     const [loading, setLoading] = useState<boolean>(false);
     const [responseMessage, setResponseMessage] = useState<string>('');
-    const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
@@ -32,21 +31,10 @@ export default function ContactSubmitPart() {
             [e.target.name]: e.target.value
         });
     };
-
-    const handleRecaptcha = (value: string | null) => {
-        setRecaptchaValue(value);
-    };
-
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
         setResponseMessage('');
-
-        if (!recaptchaValue) {
-            setResponseMessage('Please verify you are not a robot.');
-            setLoading(false);
-            return;
-        }
 
         // Retrieve the token right before submitting the form
         const token = await getCaptchaToken(); // This should be your modified function that does not need parameters
@@ -62,7 +50,7 @@ export default function ContactSubmitPart() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ ...formData, recaptcha: token })
+                body: JSON.stringify({ ...formData })
             });
 
             if (!response.ok) {
@@ -70,7 +58,6 @@ export default function ContactSubmitPart() {
             }
 
             setResponseMessage('Form submitted successfully!');
-            setRecaptchaValue(null); // Reset reCAPTCHA
         } catch (error) {
             console.error("Form submission error:", error);
             setResponseMessage('Error submitting the form. Please try again.');

@@ -3,7 +3,6 @@ import Header from "@/component/header";
 import Footer from "@/component/footer";
 import ReduxProvider from "@/redux/reduxProvider";
 import GoogleTranslate from "@/component/googleTranslate";
-import Script from "next/script";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 //style
@@ -25,10 +24,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Script
-          strategy="beforeInteractive"
-          src={`https://www.google.com/recaptcha/api.js?render=6Ldg4O4qAAAAACsIuqumgZbOrItg5kjtWB23w52n`} />
-        {/* Google Translate Widget (Gizli olacak) */}
         <GoogleTranslate />
 
         {/* Header içine LanguageDropdown eklenecek */}

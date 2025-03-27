@@ -3,101 +3,129 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import VideoPlayer from "@/component/videoPlayer";
-
-//style
-import "./courseVideoPage.scss";
-
-//image
 import arrow from "@/image/leftArrow.svg";
 import download from "@/image/download.svg";
 
+const getThumbnail = (videoPath: string) => "/default-thumbnail.jpg";
+
 export default function Page() {
   const [message, setMessage] = useState<string | null>(null);
+  const [selectedVideoIndex, setSelectedVideoIndex] = useState(0);
   const [course, setCourse] = useState<{
+    id: number;
     course_name: string;
     description: string;
-    videos: string;
-    duration: number;
-    course_id: number;
-    watched_time: number; // Make sure watched_time is a string (e.g., "00:00")
+    videos: {
+      video_order: number;
+      video_path: string;
+      video_duration: number;
+      watched_time: number;
+    }[];
   } | null>(null);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const userId = localStorage.getItem("userId");
-      const courseId = localStorage.getItem("selectedCourseId");
+    const userId = localStorage.getItem("userId");
+    const courseId = localStorage.getItem("selectedCourseId");
 
-      if (!userId || !courseId) {
-        setMessage("User ID veya Course ID eksik.");
-        return;
-      }
-
-      (async () => {
-        try {
-          const formData = new FormData();
-          formData.append("userId", userId);
-          formData.append("courseId", courseId);
-
-          const response = await fetch("https://ybdigitalx.com/vivi_front/video_player.php", {
-            method: "POST",
-            body: formData,
-          });
-
-          const data = await response.json();
-
-          if (data.status === "success") {
-            setCourse(data.data_course); // Adjusted to match the response from PHP
-            setMessage(null);
-          } else {
-            setMessage(data.message || "Kursa erişim sağlanamadı.");
-          }
-        } catch (error) {
-          console.error("Hata oluştu:", error);
-          setMessage("Ağ hatası. Lütfen tekrar deneyin.");
-        }
-      })();
+    if (!userId || !courseId) {
+      setMessage("User ID veya Course ID eksik.");
+      return;
     }
+
+    (async () => {
+      try {
+        const formData = new FormData();
+        formData.append("userId", userId);
+        formData.append("courseId", courseId);
+
+        const response = await fetch("https://ybdigitalx.com/vivi_front/video_player.php", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json();
+
+        if (data.status === "success") {
+          setCourse(data.data_course);
+        } else {
+          setMessage(data.message || "Kursa erişim sağlanamadı.");
+        }
+      } catch (err) {
+        console.error(err);
+        setMessage("Bir hata oluştu.");
+      }
+    })();
   }, []);
 
   return (
-    <div className="courseVideoPage">
-      <div className="container">
-        <div className="back">
-          <Link href="/">
-            <Image src={arrow} alt="arrow" />
-            <p className="font-inter">Geri</p>
-          </Link>
-        </div>
+    <div className="w-full">
+      <div className="container mx-auto px-4 py-4">
+        <Link href="/" className="flex items-center gap-2 text-sm text-[#0068AA] mb-4">
+          <Image src={arrow} alt="arrow" />
+          <p>Geri</p>
+        </Link>
 
         {message ? (
-          <p className="error-message">{message}</p>
+          <p className="text-red-500">{message}</p>
         ) : course ? (
-          <>
-            <div className="videoText">
-              <div className="video">
-                <VideoPlayer
-                  videoUrl={`https://ybdigitalx.com/${course.videos}`}
-                  duration={course.duration}
-                  courseId={course.course_id}
-                  userId={localStorage.getItem("userId")} // Pass the userId here
-                  watchedTime={course.watched_time} // Pass watched time to the VideoPlayer
-                />
+          <div className="flex flex-col lg:flex-row gap-6">
+            {/* LEFT: Video + Description */}
+            <div className="flex-1">
+              <video
+                key={course.videos[selectedVideoIndex].video_path}
+                src={`https://ybdigitalx.com${course.videos[selectedVideoIndex].video_path}`}
+                controls
+                className="w-full rounded-md"
+                poster={getThumbnail(course.videos[selectedVideoIndex].video_path)}
+              />
+              <p className="mt-4 text-sm text-[#848484]">{course.description}</p>
+              <button className="mt-4 flex items-center gap-2 bg-[#E70BBB] hover:bg-[#cf00a9] text-white px-4 py-2 rounded">
+                <span className="font-semibold">Download Materials</span>
+                <Image src={download} alt="download" />
+              </button>
+            </div>
+
+            {/* RIGHT: Course Content */}
+            <div className="w-full lg:w-[340px] bg-white border rounded-md shadow-sm p-4">
+              <div className="flex justify-between items-center border-b pb-2">
+                <span className="text-sm font-medium text-gray-500">Course content</span>
               </div>
-              <div className="text">
-                <h2 className="font-montserrat">{course.course_name}</h2>
-                <p className="font-inter">{course.description}</p>
-                <div className="button">
-                  <button>
-                    <p className="font-inter">Materyalleri İndir</p>
-                    <Image src={download} alt="download icon" />
-                  </button>
-                </div>
+
+              <h2 className="text-lg font-semibold mt-4">{course.course_name}</h2>
+
+              <div className="mt-4 space-y-4">
+                {course.videos.map((video, idx) => {
+                  const min = Math.floor(video.video_duration / 60);
+                  const sec = Math.round(video.video_duration % 60);
+                  const formattedDuration = `${min}:${sec.toString().padStart(2, "0")} min`;
+
+                  return (
+                    <div
+                      key={idx}
+                      onClick={() => setSelectedVideoIndex(idx)}
+                      className={`cursor-pointer border-b pb-3 ${
+                        selectedVideoIndex === idx ? "bg-gray-50" : ""
+                      }`}
+                    >
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <p className="text-sm font-medium text-black">
+                            Section {video.video_order}: Video {video.video_order}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            Watched: {Math.floor(video.watched_time)}s | {formattedDuration}
+                          </p>
+                        </div>
+                        <span className="text-lg text-gray-500">⌄</span>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
-          </>
+          </div>
         ) : (
-          <p className="loading-message">Kurs bilgileri yükleniyor...</p>
+          <p className="text-gray-500">Kurs bilgileri yükleniyor...</p>
         )}
       </div>
     </div>
