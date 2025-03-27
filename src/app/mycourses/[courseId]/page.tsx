@@ -58,22 +58,17 @@ export default function Page() {
     })();
   }, []);
 
-  // Tek tek video indirme
-  const handleDownloadVideo = (videoPath: string, videoOrder: number) => {
-    const link = document.createElement("a");
-    link.href = `https://ybdigitalx.com${videoPath}`;
-    link.download = `video-${videoOrder}.mp4`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  // Tüm videoları toplu indir
+  // ⬇️ Videoları anında indir
   const handleDownloadAllVideos = () => {
     if (!course) return;
 
     course.videos.forEach((video) => {
-      handleDownloadVideo(video.video_path, video.video_order);
+      const link = document.createElement("a");
+      link.href = `https://ybdigitalx.com${video.video_path}`;
+      link.download = `video-${video.video_order}.mp4`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     });
   };
 
@@ -106,7 +101,7 @@ export default function Page() {
                 onClick={handleDownloadAllVideos}
                 className="mt-4 flex items-center gap-2 bg-[#E70BBB] hover:bg-[#cf00a9] text-white px-4 py-2 rounded"
               >
-                <span className="font-semibold">Download All Videos</span>
+                <span className="font-semibold">Download Materials</span>
                 <Image src={download} alt="download" />
               </button>
             </div>
@@ -128,7 +123,10 @@ export default function Page() {
                   return (
                     <div
                       key={idx}
-                      className="cursor-pointer border-b pb-3"
+                      onClick={() => setSelectedVideoIndex(idx)}
+                      className={`cursor-pointer border-b pb-3 ${
+                        selectedVideoIndex === idx ? "bg-gray-50" : ""
+                      }`}
                     >
                       <div className="flex justify-between items-center">
                         <div>
@@ -139,12 +137,7 @@ export default function Page() {
                             Watched: {Math.floor(video.watched_time)}s | {formattedDuration}
                           </p>
                         </div>
-                        <button
-                          onClick={() => handleDownloadVideo(video.video_path, video.video_order)}
-                          className="text-sm text-[#0068AA] underline"
-                        >
-                          Download
-                        </button>
+                        <span className="text-lg text-gray-500">⌄</span>
                       </div>
                     </div>
                   );
