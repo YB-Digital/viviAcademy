@@ -6,7 +6,6 @@ import Image from "next/image";
 import arrow from "@/image/leftArrow.svg";
 import download from "@/image/download.svg";
 
-// Dummy thumbnail (opsiyonel)
 const getThumbnail = (videoPath: string) => "/default-thumbnail.jpg";
 
 export default function Page() {
@@ -58,15 +57,13 @@ export default function Page() {
     })();
   }, []);
 
-  // ⬇️ Videoları anında indir
   const handleDownloadAllVideos = () => {
     if (!course) return;
-
     course.videos.forEach((video) => {
       const link = document.createElement("a");
       link.href = `https://ybdigitalx.com${video.video_path}`;
       link.download = `video-${video.video_order}.mp4`;
-      document.body.appendChild(link);
+      document.body.appendChild(link); // Firefox için gerekli
       link.click();
       document.body.removeChild(link);
     });
@@ -75,7 +72,6 @@ export default function Page() {
   return (
     <div className="w-full">
       <div className="container mx-auto px-4 py-4">
-        {/* Back Link */}
         <Link href="/" className="flex items-center gap-2 text-sm text-[#0068AA] mb-4">
           <Image src={arrow} alt="arrow" />
           <p>Geri</p>
@@ -85,7 +81,7 @@ export default function Page() {
           <p className="text-red-500">{message}</p>
         ) : course ? (
           <div className="flex flex-col lg:flex-row gap-6">
-            {/* LEFT: Video Player + Description */}
+            {/* LEFT: Video + Description */}
             <div className="flex-1">
               <video
                 key={course.videos[selectedVideoIndex].video_path}
@@ -96,10 +92,9 @@ export default function Page() {
               />
               <p className="mt-4 text-sm text-[#848484]">{course.description}</p>
 
-              {/* Download Button */}
               <button
-                onClick={handleDownloadAllVideos}
                 className="mt-4 flex items-center gap-2 bg-[#E70BBB] hover:bg-[#cf00a9] text-white px-4 py-2 rounded"
+                onClick={handleDownloadAllVideos}
               >
                 <span className="font-semibold">Download Materials</span>
                 <Image src={download} alt="download" />
