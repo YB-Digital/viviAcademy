@@ -57,6 +57,18 @@ export default function Page() {
     })();
   }, []);
 
+  const handleDownloadAllVideos = () => {
+    if (!course) return;
+    course.videos.forEach((video) => {
+      const link = document.createElement("a");
+      link.href = `https://ybdigitalx.com${video.video_path}`;
+      link.download = `video-${video.video_order}.mp4`;
+      document.body.appendChild(link); // Firefox için gerekli
+      link.click();
+      document.body.removeChild(link);
+    });
+  };
+
   return (
     <div className="w-full">
       <div className="container mx-auto px-4 py-4">
@@ -79,7 +91,11 @@ export default function Page() {
                 poster={getThumbnail(course.videos[selectedVideoIndex].video_path)}
               />
               <p className="mt-4 text-sm text-[#848484]">{course.description}</p>
-              <button className="mt-4 flex items-center gap-2 bg-[#E70BBB] hover:bg-[#cf00a9] text-white px-4 py-2 rounded">
+
+              <button
+                className="mt-4 flex items-center gap-2 bg-[#E70BBB] hover:bg-[#cf00a9] text-white px-4 py-2 rounded"
+                onClick={handleDownloadAllVideos}
+              >
                 <span className="font-semibold">Download Materials</span>
                 <Image src={download} alt="download" />
               </button>
