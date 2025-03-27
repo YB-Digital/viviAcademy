@@ -58,19 +58,17 @@ export default function Page() {
     })();
   }, []);
 
-  // ⬇️ Videoları sırayla indir
+  // ⬇️ Videoları anında indir
   const handleDownloadAllVideos = () => {
     if (!course) return;
 
-    course.videos.forEach((video, index) => {
-      setTimeout(() => {
-        const link = document.createElement("a");
-        link.href = `https://ybdigitalx.com${video.video_path}`;
-        link.download = `video-${video.video_order}.mp4`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }, index * 500); // 0.5 saniye arayla indirme
+    course.videos.forEach((video) => {
+      const link = document.createElement("a");
+      link.href = `https://ybdigitalx.com${video.video_path}`;
+      link.download = `video-${video.video_order}.mp4`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     });
   };
 
