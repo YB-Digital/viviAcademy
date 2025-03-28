@@ -62,7 +62,7 @@ export default function Page() {
     course.videos.forEach((video) => {
       const link = document.createElement("a");
       link.href = `https://ybdigitalx.com${video.video_path}`;
-      link.download = `video-${video.video_order}.mp4`;
+      link.download = `https://ybdigitalx.com${video.video_path}`;
       document.body.appendChild(link); // Firefox için gerekli
       link.click();
       document.body.removeChild(link);
