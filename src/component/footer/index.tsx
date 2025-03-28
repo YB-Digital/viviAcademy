@@ -6,8 +6,8 @@ import './footer.scss';
 
 //image
 import instagram from '@/image/instagram.svg';
-import twitter from '@/image/twitter.svg';
-import youtube from '@/image/youtube.svg';
+// import twitter from '@/image/twitter.svg';
+// import youtube from '@/image/youtube.svg';
 
 export default function Footer() {
   return (
@@ -34,15 +34,15 @@ export default function Footer() {
           © 2024 VIVI
         </p>
         <div className="socialLinks">
-          <Link href="" target="_blank">
+          <Link href="https://www.instagram.com/viviofficial_?igsh=MTBlZHAwbXprMm93dw==" target="_blank">
             <Image src={instagram} alt="Instagram" />
           </Link>
-          <Link href="" target="_blank">
+          {/* <Link href="" target="_blank">
             <Image src={twitter} alt="Twitter" />
           </Link>
           <Link href="" target="_blank">
             <Image src={youtube} alt="YouTube" />
-          </Link>
+          </Link> */}
         </div>
       </div>
     </footer>
