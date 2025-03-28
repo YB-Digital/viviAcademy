@@ -59,13 +59,27 @@ export default function Page() {
 
   const handleDownloadAllVideos = () => {
     if (!course) return;
+
     course.videos.forEach((video) => {
-      const link = document.createElement("a");
-      link.href = `https://ybdigitalx.com${video.video_path}`;
-      link.download = `video-${video.video_order}.mp4`;
-      document.body.appendChild(link); // Firefox için gerekli
-      link.click();
-      document.body.removeChild(link);
+      const videoUrl = `https://ybdigitalx.com${video.video_path}`;
+
+      // Fetch the video file
+      fetch(videoUrl)
+        .then((response) => response.blob())
+        .then((blob) => {
+          const link = document.createElement("a");
+          const url = URL.createObjectURL(blob);
+          link.href = url;
+          link.download = `video-${video.video_order}.mp4`;
+          document.body.appendChild(link); // Firefox for required link in DOM
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(url); // Clean up after the download
+        })
+        .catch((error) => {
+          console.error("Error downloading video", error);
+          setMessage("Video indirilemedi.");
+        });
     });
   };
 
