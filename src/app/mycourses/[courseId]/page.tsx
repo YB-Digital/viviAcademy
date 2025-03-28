@@ -63,7 +63,8 @@ export default function Page() {
     course.videos.forEach((video) => {
       const videoUrl = `https://ybdigitalx.com${video.video_path}`;
 
-      // If needed, add headers or authorization tokens here
+      console.log("Fetching video URL:", videoUrl); // Debug log for video URL
+
       fetch(videoUrl, {
         method: "GET",
         headers: {
@@ -72,6 +73,7 @@ export default function Page() {
       })
         .then((response) => {
           if (!response.ok) {
+            console.error("Error fetching video:", response.statusText); // Debug log for error response
             throw new Error("Network response was not ok");
           }
           return response.blob();
@@ -87,7 +89,7 @@ export default function Page() {
           URL.revokeObjectURL(url); // Clean up after the download
         })
         .catch((error) => {
-          console.error("Error downloading video", error);
+          console.error("Error downloading video", error); // Capture error here
           setMessage("Video indirilemedi.");
         });
     });
