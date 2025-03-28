@@ -63,9 +63,19 @@ export default function Page() {
     course.videos.forEach((video) => {
       const videoUrl = `https://ybdigitalx.com${video.video_path}`;
 
-      // Fetch the video file
-      fetch(videoUrl)
-        .then((response) => response.blob())
+      // If needed, add headers or authorization tokens here
+      fetch(videoUrl, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${localStorage.getItem("authToken")}` // if you need an auth token
+        }
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.blob();
+        })
         .then((blob) => {
           const link = document.createElement("a");
           const url = URL.createObjectURL(blob);
