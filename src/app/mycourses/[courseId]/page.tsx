@@ -59,40 +59,13 @@ export default function Page() {
 
   const handleDownloadAllVideos = () => {
     if (!course) return;
-
     course.videos.forEach((video) => {
-      const videoUrl = `https://ybdigitalx.com${video.video_path}`;
-
-      console.log("Fetching video URL:", videoUrl); // Debug log for video URL
-
-      fetch(videoUrl, {
-        method: "GET",
-        headers: {
-          "Authorization": `Bearer ${localStorage.getItem("authToken")}` // if you need an auth token
-        }
-      })
-        .then((response) => {
-          console.log("Response status:", response.status); // Log response status
-          if (!response.ok) {
-            console.error("Error fetching video:", response.statusText); // Debug log for error response
-            throw new Error("Network response was not ok");
-          }
-          return response.blob();
-        })
-        .then((blob) => {
-          const link = document.createElement("a");
-          const url = URL.createObjectURL(blob);
-          link.href = url;
-          link.download = `video-${video.video_order}.mp4`;
-          document.body.appendChild(link); // Firefox for required link in DOM
-          link.click();
-          document.body.removeChild(link);
-          URL.revokeObjectURL(url); // Clean up after the download
-        })
-        .catch((error) => {
-          console.error("Error downloading video:", error); // Capture error here
-          setMessage(`Video indirilemedi: ${error.message}`); // Show detailed error message
-        });
+      const link = document.createElement("a");
+      link.href = `https://ybdigitalx.com${video.video_path}`;
+      link.download = `video-${video.video_order}.mp4`;
+      document.body.appendChild(link); // Firefox için gerekli
+      link.click();
+      document.body.removeChild(link);
     });
   };
 
