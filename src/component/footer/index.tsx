@@ -34,7 +34,7 @@ export default function Footer() {
           © 2024 VIVI
         </p>
         <div className="socialLinks">
-          <Link href="https://www.instagram.com/_viviofficial_?igsh=ZmNzcmg3b2x5Znc3" target="_blank">
+          <Link href="https://www.instagram.com/_viviofficial__?igsh=ZmNzcmg3b2x5Znc3" target="_blank">
             <Image src={instagram} alt="Instagram" />
           </Link>
           {/* <Link href="" target="_blank">

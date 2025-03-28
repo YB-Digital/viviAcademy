@@ -40,7 +40,7 @@ const ContactInfoPart: React.FC = () => {
                 <Link href="https://wa.me/12345678912" target="_blank">
                     <Image src={wp} alt="WhatsApp Icon" />
                 </Link>
-                <Link href="https://www.instagram.com/_viviofficial_?igsh=ZmNzcmg3b2x5Znc3" target="_blank">
+                <Link href="https://www.instagram.com/_viviofficial__?igsh=ZmNzcmg3b2x5Znc3" target="_blank">
                     <Image src={instagram} alt="Instagram Icon" />
                 </Link>
             </div>
