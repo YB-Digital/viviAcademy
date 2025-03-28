@@ -12,6 +12,8 @@ import wp from '@/image/whatsapp.svg';
 import instagram from '@/image/contactInstagram.svg';
 
 const ContactInfoPart: React.FC = () => {
+    const url = "https://www.instagram.com/_viviofficial__?igsh=MTBlZHAwbXprMm93dw=="
+    
     return (
         <div className="contactInfoPart">
             <iframe
@@ -40,7 +42,7 @@ const ContactInfoPart: React.FC = () => {
                 <Link href="https://wa.me/12345678912" target="_blank">
                     <Image src={wp} alt="WhatsApp Icon" />
                 </Link>
-                <Link href="https://www.instagram.com/_viviofficial__?igsh=MTBlZHAwbXprMm93dw==" target="_blank">
+                <Link href={url} target="_blank">
                     <Image src={instagram} alt="Instagram Icon" />
                 </Link>
             </div>

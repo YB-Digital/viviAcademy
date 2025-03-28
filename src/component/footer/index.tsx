@@ -10,6 +10,8 @@ import instagram from '@/image/instagram.svg';
 // import youtube from '@/image/youtube.svg';
 
 export default function Footer() {
+  const url = "https://www.instagram.com/_viviofficial__?igsh=MTBlZHAwbXprMm93dw=="
+
   return (
     <footer>
       <div className="footerTop">
@@ -34,7 +36,7 @@ export default function Footer() {
           © 2024 VIVI
         </p>
         <div className="socialLinks">
-          <Link href="https://www.instagram.com/_viviofficial__?igsh=MTBlZHAwbXprMm93dw==" target="_blank">
+          <Link href={url} target="_blank">
             <Image src={instagram} alt="Instagram" />
           </Link>
           {/* <Link href="" target="_blank">
