@@ -72,6 +72,7 @@ export default function Page() {
         }
       })
         .then((response) => {
+          console.log("Response status:", response.status); // Log response status
           if (!response.ok) {
             console.error("Error fetching video:", response.statusText); // Debug log for error response
             throw new Error("Network response was not ok");
@@ -89,8 +90,8 @@ export default function Page() {
           URL.revokeObjectURL(url); // Clean up after the download
         })
         .catch((error) => {
-          console.error("Error downloading video", error); // Capture error here
-          setMessage("Video indirilemedi.");
+          console.error("Error downloading video:", error); // Capture error here
+          setMessage(`Video indirilemedi: ${error.message}`); // Show detailed error message
         });
     });
   };
